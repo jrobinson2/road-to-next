@@ -1,0 +1,7 @@
+{
+    "[html][css][javascript][javascriptreact][typescript][typescriptreact][json]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true
+  }
+}

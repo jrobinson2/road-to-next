@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import Link from 'next/link';
-
 import { initialTickets } from '@/data';
 import { ticketPath } from '@/paths';
 
@@ -13,6 +12,7 @@ const CheckIcon = () => (
     stroke="currentColor"
     className="size-6"
   >
+    <title>Check Icon</title>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -30,6 +30,7 @@ const PencilIcon = () => (
     stroke="currentColor"
     className="size-6"
   >
+    <title>Pencil Icon</title>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -47,6 +48,7 @@ const DocumentIcon = () => (
     stroke="currentColor"
     className="size-6"
   >
+    <title>Document Icon</title>
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -58,7 +60,7 @@ const DocumentIcon = () => (
 const TICKET_ICONS = {
   DONE: <CheckIcon />,
   OPEN: <DocumentIcon />,
-  IN_PROGRESsS: <PencilIcon />
+  IN_PROGRESS: <PencilIcon />
 };
 
 const TicketsPage = () => {

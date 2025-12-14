@@ -10,7 +10,7 @@ type Ticket = {
   id: string;
   title: string;
   content: string;
-  status: 'DONE' | 'OPEN';
+  status: 'DONE' | 'OPEN' | 'IN_PROGRESS';
 };
 
 const TicketPage = async ({ params }: TicketPageProps) => {

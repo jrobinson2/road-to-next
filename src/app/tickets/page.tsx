@@ -1,5 +1,14 @@
 import clsx from 'clsx';
 import Link from 'next/link';
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle
+} from '@/components/ui/card';
 import { initialTickets } from '@/data';
 import { ticketPath } from '@/paths';
 
@@ -68,32 +77,31 @@ const TicketsPage = () => {
     <div className="flex-1 flex flex-col gap-y-8">
       <div>
         <h2 className="text-4xl font-bold">Tickets Page 🎫</h2>
-        <p className="text-md text-muted-foreground">
+        <p className="text-base text-muted-foreground">
           All your tickets in one place
         </p>
       </div>
 
       <div className="flex-1 flex flex-col items-center gap-y-4 animate-fade-from-top">
         {initialTickets.map((ticket) => (
-          <div
-            key={ticket.id}
-            className="w-full max-w-md p-4 border border-slate-100 rounded"
-          >
-            <h3 className="text-2xl font-semibold flex items-center gap-2">
-              <span className="truncate">{ticket.title}</span>
-              <span className="shrink-0">{TICKET_ICONS[ticket.status]}</span>
-            </h3>
-            <p
-              className={clsx('text-md truncate', {
-                'line-through': ticket.status === 'DONE'
-              })}
-            >
-              {ticket.content}
-            </p>
-            <Link href={ticketPath(ticket.id)} className="text-md underline">
-              View
-            </Link>
-          </div>
+          <Card key={ticket.id} className="w-full max-w-md">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-x-2">
+                <span className="shrink-0">{TICKET_ICONS[ticket.status]}</span>
+                <span className="truncate">{ticket.title}</span>
+              </CardTitle>
+            </CardHeader>
+
+            <CardContent>
+              <span className={'line-clamp-3'}>{ticket.content}</span>
+            </CardContent>
+
+            <CardFooter>
+              <Link href={ticketPath(ticket.id)} className="text-sm underline">
+                View
+              </Link>
+            </CardFooter>
+          </Card>
         ))}
       </div>
     </div>

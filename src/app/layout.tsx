@@ -1,19 +1,28 @@
 import './globals.css';
 
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Inter, JetBrains_Mono, Source_Serif_4 } from 'next/font/google';
 import Link from 'next/link';
+import { buttonVariants } from '@/components/ui/button';
 
 import { homePath, ticketsPath } from '@/paths';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin']
+const inter = Inter({
+  variable: '--font-sans',
+  subsets: ['latin'],
+  display: 'swap'
 });
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin']
+const sourceSerif4 = Source_Serif_4({
+  variable: '--font-serif',
+  subsets: ['latin'],
+  display: 'swap'
+});
+
+const jetBrainsMono = JetBrains_Mono({
+  variable: '--font-mono',
+  subsets: ['latin'],
+  display: 'swap'
 });
 
 export const metadata: Metadata = {
@@ -29,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${inter.variable} ${sourceSerif4.variable} ${jetBrainsMono.variable} antialiased`}
       >
         <nav>
           <ul
@@ -39,12 +48,18 @@ export default function RootLayout({
             w-full flex py-2.5 px-5 justify-between"
           >
             <li>
-              <Link href={homePath()} className="text-lg font-bold">
+              <Link
+                href={homePath()}
+                className={buttonVariants({ variant: 'outline' })}
+              >
                 Home
               </Link>
             </li>
             <li>
-              <Link href={ticketsPath()} className="text-md underline">
+              <Link
+                href={ticketsPath()}
+                className={buttonVariants({ variant: 'outline' })}
+              >
                 Tickets
               </Link>
             </li>

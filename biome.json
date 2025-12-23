@@ -29,6 +29,9 @@
     "enabled": true,
     "rules": {
       "recommended": true,
+      "style": {
+        "useImportType": "warn"
+      },
       "suspicious": {
         "noUnknownAtRules": "off"
       }
